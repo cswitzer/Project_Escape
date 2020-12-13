@@ -6,12 +6,14 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     Rigidbody rocketRigidBody;
+    AudioSource rocketAudioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         // get the reference to the rocket ship's rigid body
         rocketRigidBody = GetComponent<Rigidbody>();
+        rocketAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,7 +29,17 @@ public class Rocket : MonoBehaviour
         {
             // add force to the direction the rocket is facing
             rocketRigidBody.AddRelativeForce(Vector3.up);
+            // do not layer the audio source
+            if (!rocketAudioSource.isPlaying)
+            {
+                rocketAudioSource.Play();
+            }
         }
+        else if (Input.GetKeyUp("space"))
+        {
+            rocketAudioSource.Stop();
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
             // rocket will rotate around the Z axis
