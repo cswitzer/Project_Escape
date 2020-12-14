@@ -43,7 +43,6 @@ public class Rocket : MonoBehaviour
             case "Fuel":
                 print("Added Fuel");
                 break;
-            default:
                 print("Dead");
                 break;
         }
