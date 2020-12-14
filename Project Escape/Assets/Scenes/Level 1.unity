@@ -218,22 +218,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 342850957, guid: 578de54d664edcc418f513bee8c8845c, type: 3}
-      propertyPath: m_Drag
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 342850957, guid: 578de54d664edcc418f513bee8c8845c, type: 3}
-      propertyPath: m_Mass
-      value: 0.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 342850957, guid: 578de54d664edcc418f513bee8c8845c, type: 3}
-      propertyPath: m_Constraints
-      value: 56
-      objectReference: {fileID: 0}
     - target: {fileID: 4239592528893716531, guid: 578de54d664edcc418f513bee8c8845c,
         type: 3}
       propertyPath: m_Name
       value: Rocket Ship 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239592528893716531, guid: 578de54d664edcc418f513bee8c8845c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4239592528893716532, guid: 578de54d664edcc418f513bee8c8845c,
         type: 3}
@@ -303,6 +296,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2018072729180277175, guid: 993538cd966776f49b7d8c55ce984c9b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3125139619843116963, guid: 993538cd966776f49b7d8c55ce984c9b,
         type: 3}
@@ -387,6 +385,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Launch Pad
+      objectReference: {fileID: 0}
+    - target: {fileID: 2018072729180277175, guid: 993538cd966776f49b7d8c55ce984c9b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Friendly
       objectReference: {fileID: 0}
     - target: {fileID: 7148762640869964654, guid: 993538cd966776f49b7d8c55ce984c9b,
         type: 3}
