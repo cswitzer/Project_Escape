@@ -40,9 +40,10 @@ public class Rocket : MonoBehaviour
             case "Friendly":
                 print("OK");
                 break;
-            case "Fuel":
-                print("Added Fuel");
+            case "Powerup":
+                print("Powerup");
                 break;
+            default:
                 print("Dead");
                 break;
         }
