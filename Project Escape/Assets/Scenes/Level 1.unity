@@ -504,6 +504,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: AtomRocket
       objectReference: {fileID: 0}
+    - target: {fileID: 5893783786829766498, guid: 118220c9adac9ad4bab6da357c390825,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5893783786829766499, guid: 118220c9adac9ad4bab6da357c390825,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 5893783786829766499, guid: 118220c9adac9ad4bab6da357c390825,
         type: 3}
       propertyPath: m_Constraints
@@ -521,13 +531,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6523718521841146745, guid: 118220c9adac9ad4bab6da357c390825,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.36292648
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523718521841146745, guid: 118220c9adac9ad4bab6da357c390825,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.36292648
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523718521841146745, guid: 118220c9adac9ad4bab6da357c390825,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.36292648
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523718521841146745, guid: 118220c9adac9ad4bab6da357c390825,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.97
       objectReference: {fileID: 0}
     - target: {fileID: 6523718521841146745, guid: 118220c9adac9ad4bab6da357c390825,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 2.38
       objectReference: {fileID: 0}
     - target: {fileID: 6523718521841146745, guid: 118220c9adac9ad4bab6da357c390825,
         type: 3}
