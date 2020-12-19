@@ -136,7 +136,7 @@ PrefabInstance:
     - target: {fileID: 2018072729180277175, guid: 993538cd966776f49b7d8c55ce984c9b,
         type: 3}
       propertyPath: m_TagString
-      value: Friendly
+      value: Complete
       objectReference: {fileID: 0}
     - target: {fileID: 3125139619843116963, guid: 993538cd966776f49b7d8c55ce984c9b,
         type: 3}
@@ -746,6 +746,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Asteroid_3s
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298074997382617877, guid: f76b4193261eaf245af9a0f628ea6eb8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8298074997382617882, guid: f76b4193261eaf245af9a0f628ea6eb8,
         type: 3}
