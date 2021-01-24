@@ -2,16 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour
 {
     // adjustable parameters
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 100f;
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip failure;
+    [SerializeField] AudioClip success;
 
     // rocket components
     Rigidbody rocketRigidBody;
     AudioSource rocketAudioSource;
+
+    enum State { Alive, Dying, Transcending }
+    // set rocket to alive at the beginning of each game
+    State state = State.Alive;
 
     // Start is called before the first frame update
     void Start()
@@ -29,42 +37,79 @@ public class Rocket : MonoBehaviour
 
     private void ProcessInput()
     {
-        Thrust();
-        Rotate();
+        if (state == State.Alive)
+        {
+            RespondToThrustInput();
+            Rotate();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        // When we hit something, we do not want redundant execution of this code
+        if (state != State.Alive) { return; }
+
         switch(collision.gameObject.tag)
         {
             case "Friendly":
-                print("OK");
                 break;
-            case "Powerup":
-                print("Powerup");
+            case "Complete":
+                StartSuccessSequence();
                 break;
             default:
-                print("Dead");
+                StartFailSequence();
                 break;
         }
     }
 
-    private void Thrust()
+    private void StartSuccessSequence()
+    {
+        state = State.Transcending;
+        rocketAudioSource.Stop();
+        rocketAudioSource.PlayOneShot(success);
+        Invoke("LoadNextScene", 1f); // parameterize time
+    }
+
+    private void StartFailSequence()
+    {
+        state = State.Dying;
+        rocketAudioSource.Stop();
+        rocketAudioSource.PlayOneShot(failure);
+        Invoke("LoadFirstScene", 1f);
+    }
+
+    private void LoadNextScene()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    private void LoadFirstScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void RespondToThrustInput()
     {
         // GetKeyDown() is different. It only applies for jumping or one time firing
         if (Input.GetKey(KeyCode.Space))
         {
-            // add force to the direction the rocket is facing
-            rocketRigidBody.AddRelativeForce(Vector3.up * mainThrust);
-            // do not layer the audio source
-            if (!rocketAudioSource.isPlaying)
-            {
-                rocketAudioSource.Play();
-            }
+            ApplyThrust();
         }
         else if (Input.GetKeyUp("space"))
         {
             rocketAudioSource.Stop();
+        }
+    }
+
+    private void ApplyThrust()
+    {
+        // add force to the direction the rocket is facing
+        rocketRigidBody.AddRelativeForce(Vector3.up * mainThrust);
+        // do not layer the audio source
+        if (!rocketAudioSource.isPlaying)
+        {
+            // How we will play more than one sound
+            rocketAudioSource.PlayOneShot(mainEngine);
         }
     }
 
