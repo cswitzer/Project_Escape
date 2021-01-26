@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Friendly
   - Complete
+  - Asteroid
   layers:
   - Default
   - TransparentFX
