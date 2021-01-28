@@ -9,9 +9,14 @@ public class Rocket : MonoBehaviour
     // adjustable parameters
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 100f;
+
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip failure;
     [SerializeField] AudioClip success;
+
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem failureParticles;
+    [SerializeField] ParticleSystem successParticles;
 
     // rocket components
     Rigidbody rocketRigidBody;
@@ -67,6 +72,7 @@ public class Rocket : MonoBehaviour
         state = State.Transcending;
         rocketAudioSource.Stop();
         rocketAudioSource.PlayOneShot(success);
+        successParticles.Play();
         Invoke("LoadNextScene", 1f); // parameterize time
     }
 
@@ -75,12 +81,14 @@ public class Rocket : MonoBehaviour
         state = State.Dying;
         rocketAudioSource.Stop();
         rocketAudioSource.PlayOneShot(failure);
+        failureParticles.Play();
         Invoke("LoadFirstScene", 1f);
     }
 
     private void LoadNextScene()
     {
-        SceneManager.LoadScene(1);
+        // Every level is meant to be played in order
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void LoadFirstScene()
@@ -98,6 +106,7 @@ public class Rocket : MonoBehaviour
         else if (Input.GetKeyUp("space"))
         {
             rocketAudioSource.Stop();
+            mainEngineParticles.Stop();
         }
     }
 
@@ -110,6 +119,12 @@ public class Rocket : MonoBehaviour
         {
             // How we will play more than one sound
             rocketAudioSource.PlayOneShot(mainEngine);
+        }
+
+        if (!mainEngineParticles.isPlaying)
+        {
+            // we do not want to play particle effects for every second we are pressing space bar
+            mainEngineParticles.Play();
         }
     }
 
