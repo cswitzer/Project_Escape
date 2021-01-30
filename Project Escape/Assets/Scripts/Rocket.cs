@@ -58,7 +58,11 @@ public class Rocket : MonoBehaviour
         }
 
         // turn off collisions for debug purposes
-        ToggleCollisionDetection();
+        if (Debug.isDebugBuild)
+        {
+            // only toggle if development build is in build settings
+            ToggleCollisionDetection();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -99,8 +103,18 @@ public class Rocket : MonoBehaviour
 
     private void LoadNextScene()
     {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        int lastScene = SceneManager.sceneCountInBuildSettings;
         // Every level is meant to be played in order
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (nextSceneIndex != lastScene)
+        {
+            SceneManager.LoadScene(currentSceneIndex + 1);
+        }
+        else if (nextSceneIndex % lastScene == 0)
+        {
+            LoadFirstScene();
+        }
     }
 
     private void LoadFirstScene()
