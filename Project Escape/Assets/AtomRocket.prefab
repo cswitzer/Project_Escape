@@ -170,7 +170,6 @@ GameObject:
   - component: {fileID: 5893783786829766499}
   - component: {fileID: 5893783786829766498}
   - component: {fileID: 5893783786829766509}
-  - component: {fileID: 8854619881769071838}
   - component: {fileID: 4002278049335477390}
   m_Layer: 0
   m_Name: AtomRocket
@@ -329,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd095cca5b2ebd049a0e04257f7cffd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rcsThrust: 300
+  rcsThrust: 350
   mainThrust: 2000
   levelLoadDelay: 2
   mainEngine: {fileID: 8300000, guid: 0b1e6b44b4bd8c5458557ab396df224e, type: 3}
@@ -338,20 +337,6 @@ MonoBehaviour:
   mainEngineParticles: {fileID: 6013755402750668228}
   failureParticles: {fileID: 5983813901640971040}
   successParticles: {fileID: 5983947750160708556}
---- !u!136 &8854619881769071838
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3110581061236869687}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.8866892
-  m_Height: 6.7617416
-  m_Direction: 1
-  m_Center: {x: -0.035733063, y: 0.69779384, z: 0}
 --- !u!136 &4002278049335477390
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1067,17 +1052,17 @@ PrefabInstance:
     - target: {fileID: 3366274078650175206, guid: 2a2979e06a5597646a53abe237ec0f83,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.02
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3366274078650175206, guid: 2a2979e06a5597646a53abe237ec0f83,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.32
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3366274078650175206, guid: 2a2979e06a5597646a53abe237ec0f83,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.42
+      value: -3.81
       objectReference: {fileID: 0}
     - target: {fileID: 3366274078650175206, guid: 2a2979e06a5597646a53abe237ec0f83,
         type: 3}
@@ -1116,8 +1101,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3366274078650175207, guid: 2a2979e06a5597646a53abe237ec0f83,
         type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366274078650175207, guid: 2a2979e06a5597646a53abe237ec0f83,
+        type: 3}
       propertyPath: m_Range
-      value: 12
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366274078650175207, guid: 2a2979e06a5597646a53abe237ec0f83,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.2206746
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366274078650175207, guid: 2a2979e06a5597646a53abe237ec0f83,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.736482
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366274078650175207, guid: 2a2979e06a5597646a53abe237ec0f83,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366274078650175207, guid: 2a2979e06a5597646a53abe237ec0f83,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a2979e06a5597646a53abe237ec0f83, type: 3}

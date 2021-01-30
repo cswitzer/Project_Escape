@@ -22,6 +22,7 @@ public class Rocket : MonoBehaviour
     // rocket components
     Rigidbody rocketRigidBody;
     AudioSource rocketAudioSource;
+    CapsuleCollider rocketCollider;
 
     enum State { Alive, Dying, Transcending }
     // set rocket to alive at the beginning of each game
@@ -33,6 +34,7 @@ public class Rocket : MonoBehaviour
         // get the reference to the rocket ship's rigid body
         rocketRigidBody = GetComponent<Rigidbody>();
         rocketAudioSource = GetComponent<AudioSource>();
+        rocketCollider = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -48,6 +50,15 @@ public class Rocket : MonoBehaviour
             RespondToThrustInput();
             Rotate();
         }
+
+        // level skipping for debug purposes
+        if (Input.GetKey(KeyCode.L))
+        {
+            LoadNextScene();
+        }
+
+        // turn off collisions for debug purposes
+        ToggleCollisionDetection();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -95,6 +106,14 @@ public class Rocket : MonoBehaviour
     private void LoadFirstScene()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void ToggleCollisionDetection()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            rocketCollider.enabled = !rocketCollider.enabled;
+        }
     }
 
     private void RespondToThrustInput()
